@@ -6,11 +6,11 @@
 #    By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 22:52:34 by ftroiter          #+#    #+#              #
-#    Updated: 2022/12/08 23:57:18 by ftroiter         ###   ########.fr        #
+#    Updated: 2022/12/12 22:16:21 by ftroiter         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= libft.a
+NAME			= libftprintf.a
 
 SRCS			= ft_printf
 					
@@ -25,7 +25,11 @@ CFLAGS			= -Wall -Wextra -Werror
 all:			$(NAME)
 
 $(NAME):		$(OBJS) libft
-				ar rcs $(OBJECTS) $(LIBFT_OBJS)
+				ar rcs $@ $(OBJS) $(LIBFT_OBJS)
+
+%.o: %.c
+				$(CC) -c $(CFLAGS) $?
+
 
 libft:
 				make -C libft
