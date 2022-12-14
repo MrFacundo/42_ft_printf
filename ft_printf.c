@@ -13,30 +13,36 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-int	ft_printf(const char *str, ...)
+int ft_printf(const char *str, ...)
 {
 	va_list args;
 	va_start(args, str);
 
 	while (*str)
-		if (*str != '%' && str++)
+		if (*str != '%')
+		{
 			ft_putchar_fd(*str, 1);
+			str++;
+		}
 		else
 		{
 			str++;
 			switch (*str)
 			{
 			case 'd':
-				int i = va_arg(args, int);
-				ft_putnbr_fd(i, 1);
+				ft_putnbr_fd(va_arg(args, int), 1);
 				break;
 			case 'c':
-				char c = va_arg(args, char);
-				ft_putchar_fd(c, 1);
+				ft_putchar_fd(va_arg(args, int), 1);
+				break;
+			case 's':
+				ft_putstr_fd(va_arg(args, char *), 1);
 				break;
 			default:
 				break;
 			}
-		}	
+			str++;
+		}
+	va_end(args);
 	return 0;
 }
