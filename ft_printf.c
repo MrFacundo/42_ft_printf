@@ -15,34 +15,22 @@
 
 int ft_printf(const char *str, ...)
 {
-	va_list args;
-	va_start(args, str);
+	int return_value;
+	fmt_specifier fmt;
 
+	return_value = 0;
+	va_start(fmt.args, str);
 	while (*str)
-		if (*str != '%')
+		if (*str == '%')
 		{
-			ft_putchar_fd(*str, 1);
-			str++;
+			return 0; //parse_args
 		}
 		else
 		{
-			str++;
-			switch (*str)
-			{
-			case 'd':
-				ft_putnbr_fd(va_arg(args, int), 1);
-				break;
-			case 'c':
-				ft_putchar_fd(va_arg(args, int), 1);
-				break;
-			case 's':
-				ft_putstr_fd(va_arg(args, char *), 1);
-				break;
-			default:
-				break;
-			}
-			str++;
+			return_value++;
+			ft_putchar_fd(*str++, 1);
 		}
-	va_end(args);
-	return 0;
+	va_end(fmt.args);
+	return_value += fmt.len;
+	return return_value;
 }

@@ -15,6 +15,14 @@
 
 #include <stdarg.h>
 
+typedef struct fmt_specifier
+{
+	int 		len;
+	va_list		args;
+
+}	fmt_specifier;
+
+
 /* ft_printf.c */
 int	ft_printf(const char *str, ...);
 
