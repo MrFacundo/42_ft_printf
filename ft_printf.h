@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
+/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 21:39:39 by ftroiter          #+#    #+#             */
-/*   Updated: 2022/12/12 23:08:57 by ftroiter         ###   ########.fr       */
+/*   Updated: 2022/12/15 22:59:16 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 #include <stdarg.h>
 
-typedef struct fmt_specifier
+typedef struct specifier
 {
 	int 		len;
 	va_list		args;
 
-}	fmt_specifier;
+}	specifier;
 
 
 /* ft_printf.c */
