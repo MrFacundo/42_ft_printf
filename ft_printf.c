@@ -3,61 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 23:39:38 by ftroiter          #+#    #+#             */
-/*   Updated: 2022/12/15 23:08:02 by facu             ###   ########.fr       */
+/*   Updated: 2022/12/17 17:07:53 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-void ft_printf_char(specifier *fmt)
+int ft_printf_char(char c)
 {
-	const char c = va_arg(fmt->args, int);
-
 	ft_putchar_fd(c, 1);
+	return 1;
 }
 
-// static void initialize_specifier(specifier *fmt)
-// {
-// 	// fmt->len = 0;
-// }
 
-// static char *parse_flags(char *str, specifier *fmt)
-// {
-// 	return str;
-// }
-
-static char *parse_format_specifier(char *str, specifier *fmt)
+int parse_specifier(char *str, va_list args)
 {
-	while (*str && !ft_strchr("cspdiuxX%", *str))
-		// parse_flags(str, fmt);
+	int print_length;
+
+	print_length = 0;
+
 	if (*str == 'c')
-		ft_printf_char(fmt);
-	return (++str);
+		print_length += ft_printf_char(va_arg(args, int));
+	return (print_length);
 }
 
 int ft_printf(const char *str, ...)
 {
 	int return_value;
-	specifier fmt;
+	va_list args;
 
 	return_value = 0;
-	va_start(fmt.args, str);
+	va_start(args, str);
 	while (*str)
-		if (*str == '%' && *str++)
+		if (*str == '%' && *++str)
 		{
-			// *str++;
-			str = parse_format_specifier((char *)str, &fmt);
+			return_value += parse_specifier((char *)str, args);
+			str++;
 		}
 		else
 		{
 			return_value++;
-			ft_putchar_fd(*str++, 1);
+			ft_putchar_fd(*str, 1);
+			str++;
 		}
-	va_end(fmt.args);
-	return_value += fmt.len;
+	va_end(args);
 	return return_value;
 }

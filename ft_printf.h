@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 21:39:39 by ftroiter          #+#    #+#             */
-/*   Updated: 2022/12/15 22:59:16 by facu             ###   ########.fr       */
+/*   Updated: 2022/12/17 16:54:35 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,8 @@
 
 #include <stdarg.h>
 
-typedef struct specifier
-{
-	int 		len;
-	va_list		args;
-
-}	specifier;
-
-
 /* ft_printf.c */
 int	ft_printf(const char *str, ...);
+int parse_specifier(char *str, va_list args);
 
 #endif
