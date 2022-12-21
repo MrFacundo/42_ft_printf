@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+         #
+#    By: facu <facu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 22:52:34 by ftroiter          #+#    #+#              #
-#    Updated: 2022/12/12 22:16:21 by ftroiter         ###   ########.fr        #
+#    Updated: 2022/12/21 19:12:15 by facu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= libftprintf.a
 
-SRCS			= ft_printf
+SRCS			= ft_printf ft_printf_utils
 					
 OBJS			= $(SRCS:=.o)
 

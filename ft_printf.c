@@ -3,22 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
+/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 23:39:38 by ftroiter          #+#    #+#             */
-/*   Updated: 2022/12/17 17:07:53 by ftroiter         ###   ########.fr       */
+/*   Updated: 2022/12/21 20:36:30 by facu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
-
-int ft_printf_char(char c)
-{
-	ft_putchar_fd(c, 1);
-	return 1;
-}
-
 
 int parse_specifier(char *str, va_list args)
 {
@@ -28,6 +21,14 @@ int parse_specifier(char *str, va_list args)
 
 	if (*str == 'c')
 		print_length += ft_printf_char(va_arg(args, int));
+	else if (*str == 's')
+		print_length += ft_printf_str(va_arg(args, char *));
+	// else if (*str == 'p')
+	// 	print_length += ft_print_ptr(va_arg(args, unsigned long long));
+	else if (*str == 'u')
+		print_length += ft_print_unsigned(va_arg(args, unsigned int));
+	else if (*str == 'd' || *str == 'i')
+		print_length += ft_printnbr(va_arg(args, int));
 	return (print_length);
 }
 

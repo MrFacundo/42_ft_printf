@@ -4,6 +4,6 @@
 void main()
 {
 	// ft_printf("print char %c %s", 'c', "-followed by s string");
-	printf("print char %c\n", 'c');
-	ft_printf("print char %c", 'c');
+	printf("print int %d\n", 42);
+	ft_printf("print int %d", 42);
 }
