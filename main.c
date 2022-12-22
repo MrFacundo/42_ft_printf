@@ -3,7 +3,11 @@
 
 void main()
 {
-	// ft_printf("print char %c %s", 'c', "-followed by s string");
-	printf("print int %d\n", 42);
-	ft_printf("print int %d", 42);
+	int x = 99;
+	int *pt1;
+
+	pt1 = &x;
+
+	printf("print string %%\n");
+	ft_printf("print string %%");
 }

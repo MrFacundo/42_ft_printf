@@ -23,12 +23,18 @@ int parse_specifier(char *str, va_list args)
 		print_length += ft_printf_char(va_arg(args, int));
 	else if (*str == 's')
 		print_length += ft_printf_str(va_arg(args, char *));
-	// else if (*str == 'p')
-	// 	print_length += ft_print_ptr(va_arg(args, unsigned long long));
-	else if (*str == 'u')
-		print_length += ft_print_unsigned(va_arg(args, unsigned int));
+	else if (*str == 'p')
+		print_length += ft_printf_ptr(va_arg(args, unsigned long long));
 	else if (*str == 'd' || *str == 'i')
-		print_length += ft_printnbr(va_arg(args, int));
+		print_length += ft_printf_nbr(va_arg(args, int));
+	else if (*str == 'u')
+		print_length += ft_printf_unsigned(va_arg(args, unsigned int), 10, 0);
+	else if (*str == 'x')
+		print_length += ft_printf_unsigned(va_arg(args, unsigned int), 16, 0);
+	else if (*str == 'X')
+		print_length += ft_printf_unsigned(va_arg(args, unsigned int), 16, 1);
+	else if (*str == '%')
+		print_length += ft_printf_char(*++str);
 	return (print_length);
 }
 
