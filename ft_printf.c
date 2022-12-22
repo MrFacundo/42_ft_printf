@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facu <facu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ftroiter <ftroiter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 23:39:38 by ftroiter          #+#    #+#             */
-/*   Updated: 2022/12/21 20:36:30 by facu             ###   ########.fr       */
+/*   Updated: 2022/12/22 23:41:52 by ftroiter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int parse_specifier(char *str, va_list args)
 	else if (*str == 'X')
 		print_length += ft_printf_unsigned(va_arg(args, unsigned int), 16, 1);
 	else if (*str == '%')
-		print_length += ft_printf_char(*++str);
+		print_length += ft_printf_char(*str);
 	return (print_length);
 }
 

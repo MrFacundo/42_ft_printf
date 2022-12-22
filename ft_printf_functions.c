@@ -40,7 +40,7 @@ int ft_printf_unsigned(unsigned int n, int base, int uppercase)
 {
 	int len;
 
-	len = ft_unsigned_num_length(n, 10);
+	len = ft_unsigned_num_length(n, base);
 	ft_putfnbr_base_fd(n, base, uppercase, 1);
 	return (len);
 }
@@ -50,7 +50,13 @@ int ft_printf_ptr(unsigned long long ptr)
 	const long long n = ptr + ULONG_MAX + 1;
 	const int len = ft_unsigned_num_length(n, 16) + 2;
 
+	if (!ptr)
+	{
+		ft_putstr_fd("(nil)", 1);
+		return (ft_strlen("(nil)"));
+	}
 	ft_putstr_fd("0x", 1);
-	ft_putfnbr_base_fd(n, 16, 0, 1);
+	ft_putunbr_base_fd(n, 16, 1);
+
 	return (len);
 }

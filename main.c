@@ -8,6 +8,6 @@ void main()
 
 	pt1 = &x;
 
-	printf("print string %%\n");
-	ft_printf("print string %%");
+	printf("print string %p\n", (void *)-2);
+	ft_printf("print string %p", (void *) -2);
 }

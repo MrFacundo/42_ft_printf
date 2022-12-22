@@ -39,3 +39,12 @@ void ft_putfnbr_base_fd(long long n, int base, int uppercase, int fd)
 		ft_putfnbr_base_fd(n / base * sign, base, uppercase, fd);
 	ft_putchar_fd(digits[n % base * sign], fd);
 }
+
+void	ft_putunbr_base_fd(unsigned long long n, int base, int fd)
+{
+	const char	*digits = "0123456789abcdef";
+
+	if (n / base)
+		ft_putunbr_base_fd(n / base, base, fd);
+	ft_putchar_fd(digits[n % base], fd);
+}
