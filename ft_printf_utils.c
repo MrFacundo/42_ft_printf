@@ -1,10 +1,9 @@
-#include <limits.h>
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-int ft_num_length(int n, int base)
+int	ft_num_length(int n, int base)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (n <= 0)
@@ -14,17 +13,17 @@ int ft_num_length(int n, int base)
 	return (count);
 }
 
-int ft_unsigned_num_length(unsigned long long n, int base)
+int	ft_unsigned_num_length(unsigned long long n, int base)
 {
 	if (!(n / base))
 		return (1);
 	return (1 + ft_unsigned_num_length(n / base, base));
 }
 
-void ft_putfnbr_base_fd(long long n, int base, int uppercase, int fd)
+void	ft_putfnbr_base_fd(long long n, int base, int uppercase, int fd)
 {
-	int sign;
-	char *digits;
+	int		sign;
+	char	*digits;
 
 	digits = "0123456789abcdef";
 	sign = 1;
