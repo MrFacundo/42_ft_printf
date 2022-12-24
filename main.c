@@ -3,11 +3,13 @@
 
 void main()
 {
-	int x = 99;
-	int *pt1;
+	int pfret;
+	int ftpfret;
 
-	pt1 = &x;
+	void *ptr = (void *)NULL;
+	pfret = printf("%x\n", 42);
+	ftpfret = ft_printf("%x\n", 42);
+	printf("%d\n", pfret);
+	printf("%d\n", ftpfret);
 
-	printf("print string %p\n", (void *)-2);
-	ft_printf("print string %p", (void *) -2);
 }

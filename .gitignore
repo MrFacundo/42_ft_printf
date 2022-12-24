@@ -1,4 +1,5 @@
 *.o
 *.out
 main
-.nfs*
+.nfs*pft_2019/
+.vscode
