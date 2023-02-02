@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"*.css": "tailwindcss",
-		"*.js": "javascriptreact",
-		"ft_printf.h": "c",
-		"libft.h": "c",
-		"sstream": "c"
-	}
-}
