@@ -16,7 +16,7 @@
 
 
 ## Summary
-Recode printf() from libc.
+Write a basic printf function.
 
 ## Subject
 [📗️](en.subject.pdf) 
