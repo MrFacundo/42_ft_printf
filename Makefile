@@ -1,11 +1,11 @@
 # Binary target
 BINARY_NAME	 = ft_printf
-BINARY_SOURCES  = $(shell echo srcs/*.c)
+BINARY_SOURCES  = $(shell echo srcs/exam.c)
 BINARY_OBJECTS  = $(addprefix objects/,$(notdir $(BINARY_SOURCES:.c=.o)))
 
 # Library target
 LIB_NAME		= libftprintf.a
-LIB_SRCS		= srcs/ft_printf.c srcs/utils.c
+LIB_SRCS		= $(shell echo srcs/exam.c)
 LIB_OBJS		= $(LIB_SRCS:.c=.o)
 
 # Compiler and flags
@@ -21,7 +21,7 @@ GREEN=\033[32m
 
 # --- RULES ---
 
-all: binary library
+all: library
 
 binary: $(BINARY_NAME)
 

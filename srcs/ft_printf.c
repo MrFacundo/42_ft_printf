@@ -6,7 +6,7 @@
 /*   By: facundo <facundo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:11:47 by facundo           #+#    #+#             */
-/*   Updated: 2023/09/27 14:16:51 by facundo          ###   ########.fr       */
+/*   Updated: 2023/09/29 09:55:56 by facundo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int	parse_specifier(char c, va_list args)
 	else if (c == 'd' || c == 'i')
 		ret += ft_putnbr_base(va_arg(args, int), 10, 0);
 	else if (c == 'u')
-		ret += ft_putunbr_base(va_arg(args, unsigned int), 10);
+		ret += ft_putunbr_base(va_arg(args, long long), 10);
 	else if (c == 'x')
-		ret += ft_putnbr_base(va_arg(args, unsigned int), 16, 0);
+		ret += ft_putnbr_base(va_arg(args, long long), 16, 0);
 	else if (c == 'X')
-		ret += ft_putnbr_base(va_arg(args, unsigned int), 16, 1);
+		ret += ft_putnbr_base(va_arg(args, long long), 16, 1);
 	else if (c == '%')
 		ret += ft_putchar(c);
 	return (ret);

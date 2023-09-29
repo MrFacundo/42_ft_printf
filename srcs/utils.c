@@ -6,7 +6,7 @@
 /*   By: facundo <facundo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:13:44 by facundo           #+#    #+#             */
-/*   Updated: 2023/09/27 14:47:51 by facundo          ###   ########.fr       */
+/*   Updated: 2023/09/29 11:34:50 by facundo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,31 +47,18 @@ int	ft_putunbr_base(unsigned long long n, int base)
 
 int	ft_putnbr_base(long long n, int base, int uppercase)
 {
-	char				*digits;
-	int					ret;
-	unsigned long long	un;
+	char	*digits = uppercase ? "0123456789ABCDEF" : "0123456789abcdef";
+	int	ret = 0;
 
-	digits = uppercase ? "0123456789ABCDEF" : "0123456789abcdef";
-	ret = 0;
-	if (base == 16)
+	if (n < 0)
 	{
-		un = (unsigned long long)n;
-		if (un / base != 0)
-			ret += ft_putnbr_base(un / base, base, uppercase);
-		ret += ft_putchar(digits[un % base]);
+		n = -n;
+		ret += ft_putchar('-');
 	}
-	else
-	{
-		if (n < 0)
-		{
-			n = -n;
-			ret += ft_putchar('-');
-		}
-		if (n / base)
-			ret += ft_putnbr_base(n / base, base, uppercase);
-		ret += ft_putchar(digits[n % base]);
-	}
-	return (ret);
+	if (n / base)
+		ret += ft_putnbr(n / base, base, uppercase);
+	ret += ft_putchar(digits[n % base]);
+	return ret;
 }
 
 int	ft_putptr(unsigned long long ptr)
