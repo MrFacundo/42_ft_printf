@@ -6,7 +6,7 @@
 /*   By: facundo <facundo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:13:13 by facundo           #+#    #+#             */
-/*   Updated: 2023/09/27 14:48:04 by facundo          ###   ########.fr       */
+/*   Updated: 2023/09/29 11:54:53 by facundo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	unsigned int	b = -5;
 	int				c = -30;
 	int				d = 0;
-	int				e = -2147483648;
+	int				e = -80000000;
 
 	printf("printf: \n");
 	int	printf_ret_value = printf("%s, %p, %d, %u, %x, %X, %d\n", test, &a, a,

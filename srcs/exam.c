@@ -37,7 +37,8 @@ int	ft_putnbr(long long n, int base, int uppercase)
 	if (n < 0)
 	{
 		n = -n;
-		ret += ft_putchar('-');
+		if (base != 16)
+			ret += ft_putchar('-');
 	}
 	if (n / base)
 		ret += ft_putnbr(n / base, base, uppercase);
@@ -76,7 +77,7 @@ int	parse_specifier(char c, va_list args)
 	else if (c == 'X')
 		ret +=  ft_putnbr(va_arg(args, long long), 16, 1);
 	else if (c == '%')
-		ret +=  ft_putchar('%');
+		ret +=  ft_putchar('a');
 	return ret;
 }
 

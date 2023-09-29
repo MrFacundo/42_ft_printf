@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"*.css": "tailwindcss",
+		"*.js": "javascriptreact",
+		"libft.h": "c",
+		"type_traits": "c",
+		"ft_printf.h": "c",
+		"sstream": "c",
+		"limits": "c"
+	}
+}
