@@ -28,7 +28,6 @@ int	ft_putunbr(unsigned long long n, int base)
 	return ret;
 }
 
-
 int	ft_putnbr(long long n, int base, int uppercase)
 {
 	char	*digits = uppercase ? "0123456789ABCDEF" : "0123456789abcdef";
@@ -57,7 +56,6 @@ int	ft_putptr(unsigned long long ptr)
 	return ret;
 }
 
-
 int	parse_specifier(char c, va_list args)
 {
 	int	ret = 0;
@@ -81,7 +79,6 @@ int	parse_specifier(char c, va_list args)
 	return ret;
 }
 
-
 int	ft_printf(char *str, ...)
 {
 	va_list args;
@@ -99,6 +96,7 @@ int	ft_printf(char *str, ...)
 	va_end(args);
 	return ret;
 }
+
 /* 
 
 int	main()
@@ -118,6 +116,5 @@ int	main()
 	ft_printf("the password is %X", (unsigned int)3735929054);
 
 }
-
 
  */
